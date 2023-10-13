@@ -1,5 +1,5 @@
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
-import { TopBarTab } from "../models/constants";
+import { TopBarTab } from "../shared/models";
 
 export default function TopBar(props: { activeTab: TopBarTab, setActiveTab: (tab: TopBarTab) => void }) {
   return (
@@ -13,7 +13,7 @@ export default function TopBar(props: { activeTab: TopBarTab, setActiveTab: (tab
               marginLeft: 'auto', 
               marginRight: 'auto', 
               width: '100%', 
-              ...(props.activeTab == TopBarTab.Payouts && { backgroundColor: '#3166b5' }) 
+              ...(props.activeTab === TopBarTab.Payouts && { backgroundColor: '#3166b5' }) 
           }}>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               Payouts
@@ -26,7 +26,7 @@ export default function TopBar(props: { activeTab: TopBarTab, setActiveTab: (tab
               marginLeft: 'auto', 
               marginRight: 'auto', 
               width: '100%',
-              ...(props.activeTab == TopBarTab.Reporting && { backgroundColor: '#3166b5' }) 
+              ...(props.activeTab === TopBarTab.Reporting && { backgroundColor: '#3166b5' }) 
             }}>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               Reporting

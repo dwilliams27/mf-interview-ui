@@ -17,8 +17,15 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "noImplicitAny": false,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "sourceMap": true,
+    "paths": {
+      "timers": [
+        "./node_modules/timers-browserify"
+      ],
+    }
   },
   "include": [
     "src"
