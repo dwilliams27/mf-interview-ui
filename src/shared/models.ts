@@ -1,5 +1,11 @@
 export const BACKEND_URL = 'http://localhost:3001';
 
+export const enum REPORT_TYPE {
+  SOURCE = 'SOURCE',
+  BRANCH = 'BRANCH',
+  PAYMENTS = 'PAYMENTS'
+}
+
 export interface PaymentFile {
   root: { row: Payment[] };
 }

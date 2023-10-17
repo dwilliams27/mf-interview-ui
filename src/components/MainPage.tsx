@@ -21,7 +21,7 @@ export default function MainPage() {
       {activeTab === TopBarTab.Payouts ? (
         <Payouts setLoading={setLoading} />
       ) : (
-        <Reporting />
+        <Reporting setLoading={setLoading} />
       )}
     </React.Fragment>
   );

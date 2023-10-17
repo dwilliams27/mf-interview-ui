@@ -18,3 +18,30 @@ export function getPaymentFiles() {
     method: "GET",
   });
 }
+
+export function getBranchAmounts(fileUuid: string) {
+  return fetch(BACKEND_URL + '/reports/branch?fileUuid=' + fileUuid, {
+    headers: {
+      "Content-Type": "application/json"
+    },
+    method: "GET",
+  });
+}
+
+export function getSourceAmounts(fileUuid: string) {
+  return fetch(BACKEND_URL + '/reports/source?fileUuid=' + fileUuid, {
+    headers: {
+      "Content-Type": "application/json"
+    },
+    method: "GET",
+  });
+}
+
+export function getPayments(fileUuid: string) {
+  return fetch(BACKEND_URL + '/payments?fileUuid=' + fileUuid, {
+    headers: {
+      "Content-Type": "application/json"
+    },
+    method: "GET",
+  });
+}

@@ -1,5 +1,5 @@
 import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableFooter, TableHead, TableRow, styled } from "@mui/material";
-import { DBPaymentFile } from "../shared/models";
+import { DBPaymentFile, REPORT_TYPE } from "../shared/models";
 import React from "react";
 import {
   TablePagination,
@@ -7,7 +7,7 @@ import {
 } from '@mui/base/TablePagination';
 
 // Heavily borrowed from https://mui.com/base-ui/react-table-pagination/
-export default function CsvList (props: { files: DBPaymentFile[] }) {
+export default function CsvList (props: { files: DBPaymentFile[], getReport: (fileUuid: string, reportType: REPORT_TYPE) => void }) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
@@ -56,9 +56,9 @@ export default function CsvList (props: { files: DBPaymentFile[] }) {
               </TableCell>
               <TableCell align="right">{row.file_uuid}</TableCell>
               <TableCell align="right">{row.file_status}</TableCell>
-              <TableCell align="right"><Button>Csv</Button></TableCell>
-              <TableCell align="right"><Button>Csv</Button></TableCell>
-              <TableCell align="right"><Button>Csv</Button></TableCell>
+              <TableCell align="right"><Button disabled={row.file_status !== 'Processed'} onClick={() => props.getReport(row.file_uuid, REPORT_TYPE.SOURCE)}>Csv</Button></TableCell>
+              <TableCell align="right"><Button disabled={row.file_status !== 'Processed'} onClick={() => props.getReport(row.file_uuid, REPORT_TYPE.BRANCH)}>Csv</Button></TableCell>
+              <TableCell align="right"><Button disabled={row.file_status !== 'Processed'} onClick={() => props.getReport(row.file_uuid, REPORT_TYPE.PAYMENTS)}>Csv</Button></TableCell>
             </TableRow>
           ))}
           {emptyRows > 0 && (
