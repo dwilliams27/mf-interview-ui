@@ -1,5 +1,30 @@
+export const BACKEND_URL = 'http://localhost:3001';
+
 export interface PaymentFile {
   root: { row: Payment[] };
+}
+
+export interface Entity {
+  uid: string;
+  type: "individual" | "corporate",
+  individual?: Individual;
+  corporation?: Corporation;
+  address?: Address;
+}
+
+export interface Individual {
+  first_name: string;
+  last_name: string;
+  phone: string;
+  email?: string;
+  dob?: string;
+}
+
+export interface Corporation {
+  name: string;
+  dba?: string;
+  ein: string;
+  owners: [];
 }
 
 export interface Payment {
