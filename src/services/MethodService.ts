@@ -9,3 +9,12 @@ export function addPaymentFile(fileName: string, payments: Payment[]) {
     body: JSON.stringify({ fileName, payments })
   });
 }
+
+export function getPaymentFiles() {
+  return fetch(BACKEND_URL + '/paymentFiles', {
+    headers: {
+      "Content-Type": "application/json"
+    },
+    method: "GET",
+  });
+}

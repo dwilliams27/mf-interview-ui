@@ -70,3 +70,9 @@ export const enum TopBarTab {
   Payouts = 'Payouts',
   Reporting = 'Reporting'
 }
+
+export interface DBPaymentFile {
+  file_name: string;
+  file_uuid: string;
+  file_status: string;
+}
